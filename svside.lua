@@ -8,17 +8,17 @@ TriggerClientEvent('chat:addSuggestion', '/printids', 'Command to get user ident
 
 
 RegisterCommand('printids',function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	local steamid  = false
+    local user_id = vRP.getUserId(source)
+    local steamid  = false
     local license  = false
     local discord  = false
-	for k,v in pairs(GetPlayerIdentifiers(args[1]))do
-		if string.sub(v, 1, string.len("steam:")) == "steam:" then
-			steamid = v
-		elseif string.sub(v, 1, string.len("license:")) == "license:" then
-			license = v
-		elseif string.sub(v, 1, string.len("discord:")) == "discord:" then
-			discord = v
+    for k,v in pairs(GetPlayerIdentifiers(args[1]))do
+        if string.sub(v, 1, string.len("steam:")) == "steam:" then
+            steamid = v
+        elseif string.sub(v, 1, string.len("license:")) == "license:" then
+            license = v
+        elseif string.sub(v, 1, string.len("discord:")) == "discord:" then
+            discord = v
             if vRP.hasPermission(user_id,"YOUR_PERMISSION_HERE") then 
                 if discord == false then 
                     discord = "DISCORD ISN'T OPENED"
@@ -29,7 +29,7 @@ RegisterCommand('printids',function(source,args,rawCommand)
                         end
                     end
                 end
-			end
-		end
-	end
+            end
+        end
+    end
 end)
